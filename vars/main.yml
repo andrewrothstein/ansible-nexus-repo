@@ -1,0 +1,11 @@
+---
+# vars file for nexus-repo
+nexus_repo_name: nexus-{{nexus_repo_ver}}
+nexus_repo_tgz: '{{nexus_repo_name}}-{{nexus_repo_arch}}.tar.gz'
+nexus_repo_ver: '{{nexus_repo_major_ver}}.{{nexus_repo_minor_ver}}'
+
+# http://download.sonatype.com/nexus/3/nexus-3.3.1-01-unix.tar.gz
+nexus_repo_tgz_url: '{{nexus_repo_mirror}}/{{nexus_repo_major_ver}}/{{nexus_repo_tgz}}'
+
+nexus_repo_install_dir: '{{nexus_repo_parent_install_dir}}/{{nexus_repo_name}}'
+nexus_repo_link_dir: '{{nexus_repo_parent_install_dir}}/nexus'

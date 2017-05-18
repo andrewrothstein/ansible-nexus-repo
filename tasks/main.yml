@@ -1,0 +1,48 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{item}}'
+  with_first_found:
+    - files:
+        - '{{ansible_distribution}}-{{ansible_distribution_release}}.yml'
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      skip: true
+      paths:
+        - '{{role_path}}/vars'
+
+- name: download...
+  become: yes
+  become_user: root
+  get_url:
+    url: '{{nexus_repo_tgz_url}}'
+    dest: /tmp/{{nexus_repo_tgz}}
+    mode: 0644
+
+- name: unarchive...
+  become: yes
+  become_user: root
+  unarchive:
+    copy: no
+    src: /tmp/{{nexus_repo_tgz}}
+    dest: '{{nexus_repo_parent_install_dir}}'
+    creates: '{{nexus_repo_install_dir}}'
+
+- name: link...
+  become: yes
+  become_user: root
+  file:
+    src: '{{nexus_repo_install_dir}}'
+    dest: '{{nexus_repo_link_dir}}'
+    state: link
+
+- name: add to PATH...
+  become: yes
+  become_user: root
+  with_items:
+    - f: nexus.sh
+      d: /etc/profile.d
+      m: '0644'
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m}}'
