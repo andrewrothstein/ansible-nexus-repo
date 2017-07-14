@@ -22,7 +22,7 @@
   become: yes
   become_user: root
   unarchive:
-    copy: no
+    remote_src: no
     src: /tmp/{{nexus_repo_tgz}}
     dest: '{{nexus_repo_parent_install_dir}}'
     creates: '{{nexus_repo_install_dir}}'
