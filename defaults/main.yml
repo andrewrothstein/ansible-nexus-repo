@@ -9,6 +9,6 @@ nexus_repo_checksums:
   # curl -SsL http://download.sonatype.com/nexus/3/nexus-3.10.0-04-unix.tar.gz.sha1
   '3.10.0-04' : sha1:94a1881e5642281c05bf370bd8bbfdeff4531b5f
   # curl -SsL http://download.sonatype.com/nexus/3/nexus-3.14.0-04-unix.tar.gz.sha1
-  '3.10.0-04' : sha1:7e577cfd3c72bac488913d19dfad39e90019490f
+  '3.14.0-04' : sha1:7e577cfd3c72bac488913d19dfad39e90019490f
 
 nexus_repo_parent_install_dir: /usr/local
