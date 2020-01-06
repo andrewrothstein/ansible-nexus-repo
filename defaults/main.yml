@@ -1,10 +1,12 @@
 ---
 # defaults file for nexus-repo
 nexus_repo_major_ver: 3
-nexus_repo_minor_ver: '18.1-01'
+nexus_repo_minor_ver: '20.1-01'
 nexus_repo_os: unix
 nexus_repo_archive_type: tar.gz
 nexus_repo_mirror: http://download.sonatype.com/nexus
+
+nexus_repo_parent_install_dir: /usr/local
 
 nexus_repo_checksums:
   '3.10.0-04':
@@ -21,7 +23,6 @@ nexus_repo_checksums:
       mac: sha1:b95eeaeb9555c31b66d19d2c8a6d2664cfd2e7f8
       # http://download.sonatype.com/nexus/3/nexus-3.14.0-04-win64.zip.sha1
       win64: sha1:1adcd03cc48e48a4587e78a4d891f13e657d13c0
-
   '3.18.1-01':
       # http://download.sonatype.com/nexus/3/nexus-3.18.1-01-unix.tar.gz.sha1
       unix: sha1:9972d4615d33dcf5eeb85ec9d04422c1d8dcc752
@@ -29,5 +30,10 @@ nexus_repo_checksums:
       mac: sha1:83ba6a2424d5ee478673d5a979f0fc683f4e8aee
       # http://download.sonatype.com/nexus/3/nexus-3.18.1-01-win64.zip.sha1
       win64: sha1:98fb912680ec6db52acf49cb03d674bc2848e04a
-
-nexus_repo_parent_install_dir: /usr/local
+  '3.20.1-01':
+      # http://download.sonatype.com/nexus/3/nexus-3.20.1-01-unix.tar.gz.sha1
+      unix: sha1:5cabc748671dc510e4374548ac8c9b0f4b2517c1
+      # http://download.sonatype.com/nexus/3/nexus-3.20.1-01-mac.tgz.sha1
+      mac: sha1:91435276f6a14c2eb6850d1a2761d0845a95eb11
+      # http://download.sonatype.com/nexus/3/nexus-3.20.1-01-win64.zip.sha1
+      win64: sha1:c6e34d6525382803899dedc0007ed292a1330ed8

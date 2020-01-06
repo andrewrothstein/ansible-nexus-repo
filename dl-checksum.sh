@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 MAJOR_VER=3
-MINOR_VER=18.1-01
+MINOR_VER=20.1-01
 VER="${MAJOR_VER}.${MINOR_VER}"
 MIRROR=http://download.sonatype.com/nexus/$MAJOR_VER
 
