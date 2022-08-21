@@ -1,6 +1,6 @@
 andrewrothstein.nexus-repo
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-nexus-repo.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-nexus-repo)
+![Build Status](https://github.com/andrewrothstein/ansible-nexus-repo/actions/workflows/build.yml/badge.svg)
 
 Installs [Nexus Repository](https://www.sonatype.com/nexus-repository-oss).
 

@@ -1,7 +1,10 @@
 ---
 # defaults file for nexus-repo
-nexus_repo_major_ver: 3
-nexus_repo_minor_ver: '20.1-01'
+nexus_repo_ver:
+  major: 3
+  minor: 41
+  patch: '1-01'
+
 nexus_repo_os: unix
 nexus_repo_archive_type: tar.gz
 nexus_repo_mirror: http://download.sonatype.com/nexus
@@ -37,3 +40,10 @@ nexus_repo_checksums:
       mac: sha1:91435276f6a14c2eb6850d1a2761d0845a95eb11
       # http://download.sonatype.com/nexus/3/nexus-3.20.1-01-win64.zip.sha1
       win64: sha1:c6e34d6525382803899dedc0007ed292a1330ed8
+  '3.41.1-01':
+      # http://download.sonatype.com/nexus/3/nexus-3.41.1-01-unix.tar.gz.sha1
+      unix: sha1:39a0691ac26712ec933786c3d4020dac1b52bd49
+      # http://download.sonatype.com/nexus/3/nexus-3.41.1-01-mac.tgz.sha1
+      mac: sha1:6e0a93ee77387e17030025ce5c5d90cedad2276e
+      # http://download.sonatype.com/nexus/3/nexus-3.41.1-01-win64.zip.sha1
+      win64: sha1:5f7e65f43da2b5d2a4fbd74f13e76a551febd6f6

@@ -1,21 +1,30 @@
 #!/usr/bin/env sh
-MAJOR_VER=3
-MINOR_VER=20.1-01
-VER="${MAJOR_VER}.${MINOR_VER}"
-MIRROR=http://download.sonatype.com/nexus/$MAJOR_VER
+set -e
+MIRROR=http://download.sonatype.com/nexus
 
-dl()
-{
-    local os=$1
-    local archive_type=$2
-    local url=$MIRROR/nexus-${VER}-${os}.${archive_type}.sha1
+dl() {
+    local major_ver=$1
+    local fq_ver=$2
+    local os=$3
+    local archive_type=$4
+    local url=$MIRROR/${major_ver}/nexus-${fq_ver}-${os}.${archive_type}.sha1
 
     printf "      # %s\n" $url
-    printf "      %s: sha1:%s\n" $os $(curl -sSL $url)
+    printf "      %s: sha1:%s\n" $os $(curl -sSLf $url)
 }
 
-printf "  '%s':\n" $VER
-dl unix tar.gz
-dl mac tgz
-dl win64 zip
+dl_ver()
+{
+    local major_ver=$1
+    local minor_ver=$2
+    local patch_ver=$3
+    local fq_ver="${major_ver}.${minor_ver}.${patch_ver}"
+
+    printf "  '%s':\n" $fq_ver
+    dl $major_ver $fq_ver unix tar.gz
+    dl $major_ver $fq_ver mac tgz
+    dl $major_ver $fq_ver win64 zip
+}
+
+dl_ver 3 41 1-01
 

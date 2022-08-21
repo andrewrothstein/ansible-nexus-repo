@@ -1,6 +1,6 @@
 ---
-- name: check for existing install...
-  become: yes
+- name: check for existing install at {{ nexus_repo_install_dir }}
+  become: true
   become_user: root
   stat:
     path: '{{ nexus_repo_install_dir }}'
@@ -8,40 +8,40 @@
   register: nexus_repo_binary
 - when: not nexus_repo_binary.stat.exists
   block:
-    - name: download...
-      become: yes
+    - name: downloading {{ nexus_repo_tgz_url }} to {{ nexus_repo_tmp_tgz }}
+      become: true
       become_user: root
       get_url:
         url: '{{ nexus_repo_tgz_url }}'
-        dest: /tmp/{{ nexus_repo_tgz }}
+        dest: '{{ nexus_repo_tmp_tgz }}'
         checksum: '{{ nexus_repo_checksum }}'
         mode: 0644
-    - name: unarchive...
-      become: yes
+    - name: unarchiving {{ nexus_repo_tmp_tgz }} to {{ nexus_repo_parent_install_dir }}
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
-        src: /tmp/{{ nexus_repo_tgz }}
+        remote_src: true
+        src: '{{ nexus_repo_tmp_tgz }}'
         dest: '{{ nexus_repo_parent_install_dir }}'
         creates: '{{ nexus_repo_install_dir }}'
   always:
     - name: cleanup
-      become: yes
+      become: true
       become_user: root
       file:
-        path: /tmp/{{ nexus_repo_tgz }}
+        path: '{{ nexus_repo_tmp_tgz }}'
         state: absent
 
-- name: link...
-  become: yes
+- name: linking {{ nexus_repo_install_dir }} to {{ nexus_repo_link_dir }}
+  become: true
   become_user: root
   file:
     src: '{{ nexus_repo_install_dir }}'
     dest: '{{ nexus_repo_link_dir }}'
     state: link
 
-- name: add to PATH...
-  become: yes
+- name: adding to default shell PATH...
+  become: true
   become_user: root
   with_items:
     - f: nexus.sh
