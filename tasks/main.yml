@@ -1,10 +1,16 @@
 ---
+- include_role:
+    name: andrewrothstein.unarchive-deps
+- include_role:
+    name: andrewrothstein.temurin
+  vars:
+    openjdk_app: jre
 - name: check for existing install at {{ nexus_repo_install_dir }}
   become: true
   become_user: root
   stat:
     path: '{{ nexus_repo_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: nexus_repo_binary
 - when: not nexus_repo_binary.stat.exists
   block:
