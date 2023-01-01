@@ -27,5 +27,4 @@ dl_ver()
     dl $major_ver $fq_ver win64 zip
 }
 
-dl_ver 3 44 0-01
-
+dl_ver 3 45 0-01

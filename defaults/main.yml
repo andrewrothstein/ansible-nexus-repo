@@ -2,7 +2,7 @@
 # defaults file for nexus-repo
 nexus_repo_ver:
   major: 3
-  minor: 44
+  minor: 45
   patch: '0-01'
 
 nexus_repo_os_map:
@@ -57,3 +57,10 @@ nexus_repo_checksums:
       mac: sha256:e06135b2b8ca459fefb8546750d5de5fcf38ba86f605548a54002f7925e35e8a
       # http://download.sonatype.com/nexus/3/nexus-3.44.0-01-win64.zip.sha256
       win64: sha256:538625e30407df75e3676cd4711f5888c4ccffc50a6ee1f2ca96c5a4690f2901
+  '3.45.0-01':
+      # http://download.sonatype.com/nexus/3/nexus-3.45.0-01-unix.tar.gz.sha256
+      unix: sha256:2124ce46c9453e016dd2410a2b5edfa415e2df200cc209baa839e4df7576c1ad
+      # http://download.sonatype.com/nexus/3/nexus-3.45.0-01-mac.tgz.sha256
+      mac: sha256:4abfe9fadc5db0655bb8416b905eba2cdac33ea4e7f5bf3d4585440266accd1e
+      # http://download.sonatype.com/nexus/3/nexus-3.45.0-01-win64.zip.sha256
+      win64: sha256:c0dcba79eb18501315b74d9438ecd3c7d3ac777901e146e7eecc22a981b11a5c
